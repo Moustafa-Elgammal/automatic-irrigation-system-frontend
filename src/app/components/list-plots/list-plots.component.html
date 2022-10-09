@@ -1,0 +1,86 @@
+<div  class="container my-12 mx-auto px-4 md:px-12">
+
+    <div class="h-8 grid grid-cols-3 gap-1 content-center">
+        <h2 class="p-2">All land plots</h2> 
+        <button routerLink="/plots/add"  class="mt-2 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Add New Plot</button>
+    </div>
+    
+    
+    <div  class="container my-12 mx-auto">
+        <div class=" grid grid-cols-3 gap-1">
+            <div *ngFor="let plot of plots.reverse()"
+             class="m-2 p-2 bg-slate-300 rounded-lg">
+        
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        id 
+                    </div>
+                    <div>
+                        {{plot.id}}
+                    </div>
+
+                    <div>
+                        Land Plot name 
+                    </div>
+
+                    <div>
+                        {{plot.name}}
+                    </div>
+
+                    <div>
+                        Next irrigation time
+                    </div>
+
+                    <div>
+                        {{plot.slot | date:'yyyy-M-d H:mm '}}
+                    </div>
+
+                    <div>
+                        Amout of water in m3
+                    </div>
+
+                    <div>
+                        {{plot.amount}}
+                    </div>
+                    
+
+                    <div>
+                        Period per days
+                    </div>
+                    <div>
+                        {{plot.period}}
+                    </div>
+
+
+                    <div>
+                        Attempts to recall 
+                    </div>
+                    <div>
+                        {{plot.attempts_to_recall}}  <span *ngIf="plot.recalled_attempts"> failed:  {{plot.recalled_attempts}}</span>
+                    </div>
+
+            
+                    <div class="col-span-2">
+                        <label for="green-toggle-{{plot.id}}" class="inline-flex relative items-center mr-5 cursor-pointer">
+                            <input type="checkbox" [(ngModel)]="plot.sensor_status" id="green-toggle-{{plot.id}}" class="sr-only peer" (change)="toggleSensor(plot);">
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+                            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Sensor Status</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex mt-4">
+                    
+                    <div>
+                        <button routerLink="/plots/{{plot.id}}"  class="mt-2 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Update</button>
+                    </div>
+
+                    <div>
+                        <button *ngIf="plot.id" (click)="deletePlot(plot.id)" 
+                        class="mt-2 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 hover:bg-red-700 focus:outline-none bg-white rounded-lg border border-gray-200 hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,48 @@
+<div  class="container my-12 mx-auto px-4 md:px-12">
+
+    <div class="h-8 grid grid-cols-3 gap-1 content-center">
+        <h2>Add New</h2> 
+        <button routerLink="/plots"  class="mt-2 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Show All</button>
+    </div>
+    
+    
+    <div  class="container my-12 mx-auto px-4 md:px-12">
+        <div class="mb-6">
+            <form (ngSubmit)="savePlot()">
+                <div class="name">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Plot Name</label>
+                    <input type="text" name="name" [(ngModel)]="plot.name" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            
+                <div class="slot">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Next Irrigation time slot</label>
+                    <input type="datetime-local" name="slot"  [(ngModel)]="plot.slot" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            
+            
+                <div class="amount">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Amount of water per m3</label>
+                    <input type="number" min="1" name="amount" [(ngModel)]="plot.amount" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            
+                <div class="period">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Period per days</label>
+                    <input type="number" min="1" name="period" [(ngModel)]="plot.period" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+            
+                  
+                <div class="period">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Attempts to re call </label>
+                    <input type="number" min="1" name="times_to_recall" [(ngModel)]="plot.attempts_to_recall" class="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+
+                <div class="submit">
+                    <button type="submit" class="mt-2 py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">save</button>
+                </div>
+            
+            </form>
+                        
+        </div>
+    </div>
+   
+</div>
